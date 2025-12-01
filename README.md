@@ -1,6 +1,6 @@
 # botsv3-incident-analysis  
 
-# Table of contents
+## Table of contents
   * [Introduction (10%)](#introduction--10--)
   * [SOC Roles & Incident Handling Reflection (10%)](#soc-roles---incident-handling-reflection--10--)
   * [Installation & Data Preparation (15%)](#installation---data-preparation--15--)
@@ -73,7 +73,8 @@ Including the SourceFileName in the search bar was the next step, while also mak
 As you can see from the screenshot above, the answer is:  
 <b> Mozilla/5.0 (X11; U; Linux i686; ko-KP; rv: 19.1br) Gecko/20130508 Fedora/1.9.1-2.5.rs3.0 NaenaraBrowser/3.5b4 </b>
 
-### What was the name of the macro-enabled attachment identified as malware? 
+### What was the name of the macro-enabled attachment identified as malware?
+  
 
 <p>
 <img width="1714" height="874" alt="Screenshot from 2025-11-24 15-00-48" src="https://github.com/user-attachments/assets/e8139788-a831-462e-aaf1-965adfc099da" />
@@ -105,5 +106,48 @@ As it ends with D, we can presume that it is probably a draft and because it is 
 
 So the name of the file was <b> Frothly-Brewery-Financial-Planning-FY2019-Draft.xlsm </b>.
 
+### What is the name of the executable that was embedded in the malware?  
+
+To look for the application, you have to check:  
+
+|Source| Description |
+| :--- | :--- |
+| source="WinEventLog:Application" | Identifying event logs for applications |  
+
+<p>
+<img width="1714" height="874" alt="Screenshot from 2025-12-01 19-49-35" src="https://github.com/user-attachments/assets/9e748248-7e67-447c-92b8-dc6ca311d7d2" />
+</p>
+
+This will show all of the applications that were used and logged on the Windows system.
+
+<p>
+<img width="1714" height="874" alt="Screenshot from 2025-12-01 20-09-44" src="https://github.com/user-attachments/assets/5f1ce885-b5b1-4757-aae3-74c71abf2fd2" />
+</p>
+
+Once selecting the Symantec AntiVirus on the left menu, it revealed the contents that was scanned. 
+
+|Source Name| Description |
+| :--- | :--- |
+| SourceName="Symantec AntiVirus" | The name of the antivirus | 
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-01 20-12-09" src="https://github.com/user-attachments/assets/52250289-bad5-45a0-8cbd-b1c0fa5bad49" />
+</p> 
+
+By adding \*Frothly\* to end as we are looking for a specific event that relates.  
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-01 20-32-20" src="https://github.com/user-attachments/assets/2d66e961-3c92-4483-a8f3-7a0b4f3c4405" />
+</p>
+
+|Source Name| Description |
+| :--- | :--- |
+| sourceName="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" | Checking System monitoring | 
+
+By checking this location, it allows us to see what the malware was using on the system.
+
+\*xlsm\* | reverse  was added to the end to focus the search for any .xlsm extentions and reverse was to have the relevent event at the top.
+
+Looking the event information, as highlighted in the screenshot, the executable is stated as HxTsr.exe  
 
 ## Conclusion, References and Presentation (5%)
