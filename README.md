@@ -47,7 +47,7 @@ As we have to check OneDrive, sourcetype="ms:o365:management" to look through th
 | Sourcetype | Description |
 | :--- | :--- |
 | sourcetype="ms:o365:management | Capturing Microsoft 365 management logs |
-| Operation=fileUploaded | Revealing uploaded files|
+| Operation=fileUploaded | Revealing uploaded files |
 
 <p>
 <img width="1920" height="1080" alt="Screenshot from 2025-11-24 14-39-28" src="https://github.com/user-attachments/assets/c8b7d2db-3a35-453e-af59-17f0d815d357" />  
@@ -74,7 +74,6 @@ As you can see from the screenshot above, the answer is:
 <b> Mozilla/5.0 (X11; U; Linux i686; ko-KP; rv: 19.1br) Gecko/20130508 Fedora/1.9.1-2.5.rs3.0 NaenaraBrowser/3.5b4 </b>
 
 ### What was the name of the macro-enabled attachment identified as malware?
-  
 
 <p>
 <img width="1714" height="874" alt="Screenshot from 2025-11-24 15-00-48" src="https://github.com/user-attachments/assets/e8139788-a831-462e-aaf1-965adfc099da" />
@@ -149,5 +148,41 @@ By checking this location, it allows us to see what the malware was using on the
 \*xlsm\* | reverse  was added to the end to focus the search for any .xlsm extentions and reverse was to have the relevent event at the top.
 
 Looking the event information, as highlighted in the screenshot, the executable is stated as HxTsr.exe  
+
+### What is the password for the user that was successfully created by the user "root" on the on-premises Linux system? ###
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-11 13-55-05" src="https://github.com/user-attachments/assets/a89a6705-ca6f-4c81-95b9-d2e59f7f984c" />
+</p>
+
+| Command | Description |
+| :--- | :--- |
+| (adduser OR useradd ) | Adding the user |
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-11 13-56-32" src="https://github.com/user-attachments/assets/fa04b36e-f617-47c2-87c4-50fbee866ae4" />
+</p>
+
+| Source | Description |
+| :--- | :--- |
+| /var/log/auth.log | This shows all the user events |
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-11 13-58-15" src="https://github.com/user-attachments/assets/6e911984-3c36-4c44-b326-7343d20dfbdc" />
+</p>
+
+When clicking on the linked text, it presented 1 event stating the new user was tomcat7. It shows that it was add by UID=0, which is the root user.
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-11 13-59-55" src="https://github.com/user-attachments/assets/50eef10f-bab7-4d12-8365-17856f22a16b" />
+</p>
+
+Replacing the search with tomcat7, it showed 12 events. Looking at the source type on the left, osquery:results was presented.
+
+<p>
+ <img width="1714" height="874" alt="Screenshot from 2025-12-11 14-00-28" src="https://github.com/user-attachments/assets/34257954-7d97-41f7-8e1c-639ebb50b640" />
+</p>
+
+After clicking on the linked text, it revealed 2 events. Clicking on show as raw text on the first event, the password revealed itself to be <b> ilovedavidverve </b>
 
 ## Conclusion, References and Presentation (5%)
