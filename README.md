@@ -8,15 +8,24 @@
   * [Conclusion, References and Presentation (5%)](#conclusion--references-and-presentation--5--)  
 
 ## Introduction (10%)
-•	Overview of the SOC context
+The Security Operations Centers (SOCs) have to face the challenges of detecting multi-stage attacks which ranges over hybrid cloud environments. 
 
-•	Overview of the BOTSv3 exercise
+A way to better understand, Splunk has developed a dataset called 'The Boss of the SOC v3' (BOTSv3). It is able to simulate what it would be like to have a compromised company, which in this instance is 'Frothly Brewing Company'. 
 
-•	Overview of the objects of investigation
+They provided 320MB pre-indexted logs, including their network traffic which will be useful to answering the correct answers to how this attack had happened. The excercise provides the skills of a Tier 1-3 SOC analyst, mapping to MITRE ATT&CK tactics.
 
 
 ## SOC Roles & Incident Handling Reflection (10%)
+To better understand the SOC security analyst tiers, we will have to go through them one by one:
 
+Tier 1 - Monitoring and triage
+This tier primary focus is on alert triage and prioritisation. When discovered it is important that it is categorised and escalated to the higher tiers.
+
+Tier 2 - Investigation and correlation
+Next, this role will ace as incident responders, they will conduct in-depth investigations. Threat intelligence will be used to identify attackers, investigate the attacks and inforce containment and improvement strategies.
+
+Tier 3 - Threat hunting and improvement
+Lastly, these are the threat hunters, which will search for harder threats and locate vulnerabilities, this can also include any unknown attack patterns which was afflicted on the network.
 
 ## Installation & Data Preparation (15%)
 Splunk was installed from: 
@@ -42,7 +51,7 @@ The wget link was copied for .tgz at:
 <img width="1920" height="1080" alt="Screenshot from 2025-11-24 14-34-48" src="https://github.com/user-attachments/assets/066c8824-507a-4832-82ee-f58df389bab1" />  
 </p>
 
-As we have to check OneDrive, sourcetype="ms:o365:management" to look through the logs. To identify files that were uploaded, Operation=fileUploaded was then added, which presented seven events but we would have to look deeper to find the specific file.  
+As we have to check OneDrive, sourcetype="ms:o365:management" was added to look through the logs of uploaded files. To identify files that were uploaded, Operation=fileUploaded was then added on to this, which presented seven events but we would have to look deeper to find the specific file.  
 
 | Sourcetype | Description |
 | :--- | :--- |
@@ -53,7 +62,7 @@ As we have to check OneDrive, sourcetype="ms:o365:management" to look through th
 <img width="1920" height="1080" alt="Screenshot from 2025-11-24 14-39-28" src="https://github.com/user-attachments/assets/c8b7d2db-3a35-453e-af59-17f0d815d357" />  
 </p>
 
-Next, SourceFileName="*.lnk" was added which narrowed it down to one event. Looking at the event details you can see the SourceFileName to be BRUCE BIRTHDAY HAPPY OUR PICS.lnk.  
+Next, SourceFileName="*.lnk" was added as it is commonly used as an exploit and is used to hide excutable files to install malware. By doing this, it narrows it down to one event. Looking at the event details you can see the SourceFileName to be BRUCE BIRTHDAY HAPPY OUR PICS.lnk.  
 
 |Sourcetype| Description |
 | :--- | :--- |
