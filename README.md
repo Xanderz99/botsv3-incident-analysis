@@ -57,7 +57,8 @@ The Linux layer will uncover the backdoor creation and movement. Authentication 
 
 As we must check OneDrive, sourcetype="ms:o365:management" was added to look through the logs of uploaded files. To identify files that were uploaded, Operation=fileUploaded was then added on to this, which presented seven events, but we would have to look deeper to find the specific file.  
 
-| Search Term | Purpose |
+|Search Term| Purpose |
+| :--- | :--- |
 | sourcetype="ms:o365:management" | O365 management logs |
 | Operation=fileUploaded | File uploads only |
 
