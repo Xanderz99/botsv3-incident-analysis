@@ -1,11 +1,11 @@
 # botsv3-incident-analysis  
 
 ## Table of contents
- - [Introduction](#introduction--)
- - [SOC Roles & Incident Handling Reflection](#soc-roles---incident-handling-reflection--)
- - [Installation & Data Preparation](#installation---data-preparation--)
- - [Guided Questions](#guided-questions--)
- - [Conclusion, References and Presentation](#conclusion--references-and-presentation--)
+- [Introduction](#introduction)
+- [SOC Roles & Incident Handling Reflection](#soc-roles--incident-handling-reflection)
+- [Installation & Data Preparation](#installation--data-preparation)
+- [Guided Questions](#guided-questions)
+- [Conclusion, References and Presentation](#conclusion-references-and-presentation)
 
 ## Introduction
 This report documents an incident analysis of the Splunk "Boss of the SOC v3 (BOTSv3)" dataset to simulate a compromised company; in this instance, Frothly Brewing Company. The scope of this report analyses the email-related and endpoint-related events.
