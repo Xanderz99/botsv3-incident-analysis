@@ -84,7 +84,7 @@ As you can see from the screenshot above, the answer is:
 ```text
 Mozilla/5.0 (X11; U; Linux i686; ko-KP; rv: 19.1br) Gecko/20130508 Fedora/1.9.1-2.5.rs3.0 NaenaraBrowser/3.5b4
 ```
-The user agent string shows that a Linux-based browser, which originates from North Korea. Uploading the malicious .lnk file, confirms initial access via spear-phishing (T1566.001).
+The user agent string shows that a Linux-based browser, which originates from North Korea, uploaded the malicious .lnk file, which confirms initial access via spear-phishing (T1566.001).
 
 ---
 
@@ -117,7 +117,7 @@ So the name of the file was:
 ```text
 Frothly-Brewery-Financial-Planning-FY2019-Draft.xlsm
 ```
-The macro-enabled .xlsm was used as a hidden vehicle to deliver malware, behind a trusted financial doc to activate a payload fit under as it was embedded (T1559.002).
+The macro-enabled .xlsm was used as a hidden vehicle to deliver malware, behind a trusted financial doc to activate a payload, which was embedded (T1559.002).
 
 ---
 
@@ -135,7 +135,7 @@ This will show all the applications that were used and logged on the Windows sys
 
 ![Application usage screenshot](https://github.com/user-attachments/assets/5f1ce885-b5b1-4757-aae3-74c71abf2fd2)
 
-Once selecting the Symantec AntiVirus on the left menu, it revealed the contents that was scanned. 
+Once selecting the Symantec AntiVirus on the left menu, it revealed the content that was scanned. 
 
 |Source Name| Description |
 | :--- | :--- |
@@ -143,7 +143,7 @@ Once selecting the Symantec AntiVirus on the left menu, it revealed the contents
 
 ![Symantec scan screenshot](https://github.com/user-attachments/assets/52250289-bad5-45a0-8cbd-b1c0fa5bad49)
 
-By adding \*Frothly\* to the end, as we are looking for a specific event that relates.  
+By adding \*Frothly\* to the end, it narrows it down to a specific event.  
 
 ![Frothly filter screenshot](https://github.com/user-attachments/assets/2d66e961-3c92-4483-a8f3-7a0b4f3c4405)
 
@@ -172,11 +172,15 @@ As the payload is via the Excel macro (T1204.002), it is moved from initial acce
 | :--- | :--- |
 | (adduser OR useradd ) | Adding the user |
 
+By adding the command, it specifies events towards adding a user.
+
 ![adduser event screenshot](https://github.com/user-attachments/assets/fa04b36e-f617-47c2-87c4-50fbee866ae4)
 
 | Source | Description |
 | :--- | :--- |
 | /var/log/auth.log | This shows all the user events |
+
+Selecting /var/log/auth.log will provide all the user events.
 
 ![auth.log screenshot](https://github.com/user-attachments/assets/6e911984-3c36-4c44-b326-7343d20dfbdc)
 
@@ -216,7 +220,7 @@ To identify that the account was created after the endpoint was compromised, we 
 
 ![Screenshot from 2025-12-19 21-06-13](https://github.com/user-attachments/assets/bb929476-4b6b-4182-9e36-26004a0490a4)
 
-Looking closer at the event details, we can see that the user account was named "svcvnc". The reason it is suspicious is that it suggests an account for VNC (Virtual Network Computing), which is a remote desktop protocol, was used by an attacker.
+Looking closer at the event details, we can see that the user account was named "svcvnc". The reason it is suspicious is that it suggests an account for VNC (Virtual Network Computing), which is a remote desktop protocol.
 
 As shown in the first screenshot, the account was created 19/08/2018 at 22:08:17.
 
