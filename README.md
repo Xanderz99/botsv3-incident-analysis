@@ -369,3 +369,9 @@ As a takeaway, these three bullet points would have prevented each attack from p
 - Monitoring account would have alerted the account creation.
 
 - As the recon scanning was noisy, hdoor.exe could have been detected by a network EDR.
+
+<img src="https://github.com/user-attachments/assets/b12e2287-ab59-4ba0-8c03-1457670a28bd" alt="Screenshot 2026-01-06 at 21 42 29" width="400" height="522" style="max-width: 100%; height: auto;">
+
+<img src="https://github.com/user-attachments/assets/fea80b1b-eb15-4919-8e67-b8301aeb512b" alt="Screenshot 2026-01-06 at 21 42 49" width="400" height="522" style="max-width: 100%; height: auto;">
+
+
